@@ -23,7 +23,7 @@ Get real-time Gmail push notifications to your Discord channel!
 
 ## Prerequisites
 - [Create a new project on the Google Cloud console](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
-- Generate the `credentials.json` file by creating an OAuth2 client ID and client secret for your new project
+- Generate the `credentials.json` file by [creating an OAuth2 client ID and client secret](https://console.cloud.google.com/apis/credentials) for your new project
 - [Enable the Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com) for your new project
 - [Enable the Pub/Sub API](https://console.cloud.google.com/cloudpubsub/) and the Gmail API for your new project
 - [Create a Pub/Sub Topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic) and a Subscription for that Topic
