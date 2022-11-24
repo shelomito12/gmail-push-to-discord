@@ -1,0 +1,8 @@
+credentials.json
+token.json
+gmailpush_history.json
+.env
+*.sh
+node_modules
+logs
+backup
