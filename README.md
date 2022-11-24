@@ -28,8 +28,10 @@ Get real-time Gmail push notifications to your Discord channel!
 - [Enable the Pub/Sub API](https://console.cloud.google.com/cloudpubsub/) for your new project
 - [Create a Pub/Sub Topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic) and a Subscription for that Topic
 ![image](https://user-images.githubusercontent.com/10729787/203846918-90ea597a-809f-4062-ad3a-801042d5aaa7.png)
+- Grant Gmail privileges to Cloud Pub/Sub to allow publishing notifications to your topic. To do this, you need to grant publish privileges to gmail-api-push@system.gserviceaccount.com
+![pubsub_permissions](https://user-images.githubusercontent.com/10729787/203849161-083bbf8f-c128-4a3a-aa6f-06152c9d573a.png)
+- Make sure to select PUSH as the _Delivery Type_, and then enter your endpoint URL. You should get a VPS on the cloud with a public domain (HTTPS) for setting up the endpoint URL for google to send you updates. Deploy the Node.js server however you like. For testing purposes, I recommend using [ngrok](https://ngrok.com/download)
 ![image](https://user-images.githubusercontent.com/10729787/203836457-7d281635-e75c-48da-9213-fbebc2fa4902.png)
-- Get a VPS on the cloud with a public domain (HTTPS) for setting up the endpoint URL for google to send you updates. Deploy the Node.js server however you like. For testing purposes, I recommend using [ngrok](https://ngrok.com/download)
 - Create a [Discord Webhook](https://discordjs.guide/popular-topics/webhooks.html#creating-webhooks-through-server-settings), then copy and paste the URL in the `.env` file
 ## Installation
 
