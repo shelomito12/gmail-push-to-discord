@@ -18,21 +18,22 @@ Get real-time Gmail push notifications to your Discord channel!
 - No need to periodically poll the Gmail API's history feed for updates
 - Just subscribe and whenever a change occurs, the app will instantly notify you
 - Once a new email is pushed, it will route as a text message to your Discord webhook URL
-- Choose which part of the email (subject, body. from, to, etc) to include in the Discord message
+- Choose which part of the email (subject, body, from, to) you want to include them in the message to Discord
 
 
 ## Prerequisites
-- Create a new project on the Google Cloud console
+- [Create a new project on the Google Cloud console](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
 - Generate the `credentials.json` file by creating an OAuth2 client ID and client secret for your new project
-- Enable the Pub/Sub API and the Gmail API for that project
+- [Enable the Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com) for your new project
+- [Enable the Pub/Sub API](https://console.cloud.google.com/cloudpubsub/) and the Gmail API for your new project
 - [Create a Pub/Sub Topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic) and a Subscription for that Topic
-- A VPS on the cloud with a public domain for setting up the endpoint URL for google to send us updates. Deploy the Node.js server however you like. For testing purposes, I recommend using [ngrok](https://ngrok.com/download)
+- Get a VPS on the cloud with a public domain (HTTPS) for setting up the endpoint URL for google to send us updates. Deploy the Node.js server however you like. For testing purposes, I recommend using [ngrok](https://ngrok.com/download)
 - Create a [Discord Webhook](https://discordjs.guide/popular-topics/webhooks.html#creating-webhooks-through-server-settings)
 ## Installation
 
 1. Clone this repo and then install it with npm:
 
-```bash
+```
   git clone https://github.com/jzvi12/gmail-push-to-discord.git
   cd gmail-push-to-discord/
   npm i
