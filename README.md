@@ -59,7 +59,7 @@ node getNewToken.js
 ```
 Copy the verification URL from the terminal and paste it a browser where the same Gmail account is already logged in.
 Just allow access to your new app and copy and code and paste it in the terminal.
-If everything went fine, you'll see your `token.json` file.
+If everything goes well, you'll see your `token.json` file.
 
 
 
