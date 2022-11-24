@@ -23,11 +23,11 @@ Get real-time Gmail push notifications to your Discord channel!
 
 ## Prerequisites
 - Create a new project on the Google Cloud console
-- OAuth2 client ID and client secret
-- Access token for user's Gmail data
+- Generate the `credentials.json` file by creating an OAuth2 client ID and client secret for your new project
 - Enable the Pub/Sub API and the Gmail API for that project
-- Create a Pub/Sub Topic and a Subscription for that Topic (https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic)
-- A local server exposed to the internet via [ngrok](https://ngrok.com/download), or a VPS for setting up the endpoint URL
+- [Create a Pub/Sub Topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic) and a Subscription for that Topic
+- A VPS on the cloud with a public domain for setting up the endpoint URL for google to send us updates. Deploy the Node.js server however you like. For testing purposes, I recommend using [ngrok](https://ngrok.com/download)
+- Create a [Discord Webhook](https://discordjs.guide/popular-topics/webhooks.html#creating-webhooks-through-server-settings)
 ## Installation
 
 1. Clone this repo and then install it with npm:
