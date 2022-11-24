@@ -50,7 +50,7 @@ EMAIL_LABEL=UNREAD
 WEBHOOK_URL=https://discord.com/api/webhooks/get/yours
 ```
 
-3. Generate and download your `credentials.json` file after creating a new project on the Google Cloud console, and then place it in the app root directory.
+3. From the [prerequisites](#prerequisites),  download and place your `credentials.json` file in the app root directory.
 
 4. Generate a Gmail access token by running the following command:
 
