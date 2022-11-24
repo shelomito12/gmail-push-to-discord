@@ -1,6 +1,8 @@
 
 # Gmail Push notifications to Discord
 
+![Logo](https://app.integrately.com/i/schema/gmail_discord_integrations.png)
+
 Get real-time Gmail push notifications to your Discord channel!
 
 
