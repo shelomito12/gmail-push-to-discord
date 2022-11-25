@@ -35,14 +35,14 @@ Get real-time Gmail push notifications to your Discord channel!
 - Create a [Discord Webhook](https://discordjs.guide/popular-topics/webhooks.html#creating-webhooks-through-server-settings), then copy and paste the URL in the `.env` file
 ## Installation
 
-1. Clone this repo and then install required libraries with npm:
+Clone this repo and then install required libraries with npm:
 
 ```
   git clone https://github.com/jzvi12/gmail-push-to-discord.git
   cd gmail-push-to-discord/
   npm i
 ```
-2. Rename the `.env_exmaple` file to `.env` and then add your credentials:
+Rename the `.env_exmaple` file to `.env` and then add your credentials:
 
 ```
 EMAIL=test@gmail.com
@@ -54,9 +54,9 @@ EMAIL_LABEL=UNREAD
 WEBHOOK_URL=https://discord.com/api/webhooks/get/yours
 ```
 
-3. From the [prerequisites](#prerequisites),  download and place your `credentials.json` file in the app root directory.
+From the [prerequisites](#prerequisites),  download and place your `credentials.json` file in the app root directory.
 
-4. Generate a Gmail access token by running the following:
+Generate a Gmail access token by running the following:
 
 ```bash
 node getNewToken.js
@@ -65,7 +65,8 @@ Copy the verification URL from the terminal and paste it a browser where the sam
 Just allow access to your new app and copy and code and paste it in the terminal.
 If everything goes well, you'll see your `token.json` file.
 
-5. Send a "Watch Request" so that Google starts watching our Gmail account for push notifications on the given user mailbox:
+Send a "Watch Request" so that Google starts watching our Gmail account for push notifications on the given user mailbox:
+
 ```
 node watchRequest.js
 ```
