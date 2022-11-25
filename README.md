@@ -65,12 +65,12 @@ Copy the verification URL from the terminal and paste it a browser where the sam
 Just allow access to your new app and copy and code and paste it in the terminal.
 If everything goes well, you'll see your `token.json` file.
 
-If you have created a user label and want to monitor this label, then you may want to run the following to get the Label ID for the corresponding label name:
+If you have created a user label and want to monitor this label, then you may want to run the following to get the label ID for the corresponding label name:
 
 ```
 node eventTracker.js
 ```
-Just perform any action on you Gmail web client like deleting an email, creating a draft, or receiving a new email, then you will get some data. Just look for the label list.
+Just perform any action on your Gmail web client like deleting an email, creating a draft, or receiving a new email, then you will get some JSON data. Just look for the label list. You will then need to set this label ID in the `.env` file (`EMAIL_LABEL`).
 
 Send a "Watch Request" so that Google starts watching our Gmail account for push notifications on the given user mailbox:
 
