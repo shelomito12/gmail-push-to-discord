@@ -85,7 +85,7 @@ At this point you should be able to execute the main application:
 node index.js
 ```
 
-It's recommended that install an advanced process manager for your production Node.js applications such as `pm2`:
+It's recommended to have an advanced process manager for your production Node.js applications such as [`pm2`](https://pm2.keymetrics.io/):
 
 ```
 sudo npm install pm2@latest -g
