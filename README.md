@@ -90,6 +90,11 @@ It's recommended to have an advanced process manager for your production Node.js
 ```
 sudo npm install pm2@latest -g
 ```
+then you can start it:
+
+```
+pm2 start index.js --name <your-app-name> --time
+```
 
 
 ## License
