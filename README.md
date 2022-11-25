@@ -77,6 +77,19 @@ Send a "Watch Request" so that Google starts watching our Gmail account for push
 ```
 node watchRequest.js
 ```
+You should see a JSON response. Make sure you see `status: 200` which means the request was accepted.
+
+At this point you should be able to execute the main application:
+
+```
+node index.js
+```
+
+It's recommended that install an advanced process manager for your production Node.js applications such as `pm2`:
+
+```
+sudo npm install pm2@latest -g
+```
 
 
 ## License
