@@ -62,7 +62,7 @@ Generate a Gmail access token by running the following:
 node getNewToken.js
 ```
 Copy the verification URL from the terminal and paste it a browser where the same Gmail account is already logged in.
-Just allow access to your new app and copy and code and paste it in the terminal.
+Just allow access to your new app using your account, then copy and paste the given code into the terminal.
 If everything goes well, you'll see your `token.json` file.
 
 If you have created a user label and want to monitor this label, then you may want to run the following to get the label ID for the corresponding label name:
