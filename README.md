@@ -72,7 +72,7 @@ node eventTracker.js
 ```
 Just perform any action on your Gmail web client like deleting an email, creating a draft, or receiving a new email, then you will get some JSON data. Just look for the label list. You will then need to set this label ID in the `.env` file (`EMAIL_LABEL`).
 
-Send a "Watch Request" so that Google starts watching our Gmail account for push notifications on the given user mailbox:
+Send a "Watch Request" so that Google starts watching your Gmail account for push notifications on the given user mailbox:
 
 ```
 node watchRequest.js
