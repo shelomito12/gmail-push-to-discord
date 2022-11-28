@@ -90,11 +90,12 @@ It's recommended to have an advanced process manager for your production Node.js
 ```
 sudo npm install pm2@latest -g
 ```
-then you can start it:
+then you can start it as follows:
 
 ```
 pm2 start index.js --name <your-app-name> --time
 ```
+Your application will then start in the background, and if it crashes for whatever reason, it'll be automatically restarted.
 
 
 ## License
