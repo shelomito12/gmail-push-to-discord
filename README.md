@@ -63,7 +63,9 @@ node getNewToken.js
 ```
 Copy the verification URL from the terminal and paste it a browser where the same Gmail account is already logged in.
 Just allow access to your new app using your account, then copy and paste the given code into the terminal.
-If everything goes well, you'll see your `token.json` file.
+![image](https://user-images.githubusercontent.com/10729787/204698131-56556e83-612e-4c2f-964e-e3fd78ae5a1a.png)
+
+If everything goes well, you'll get the access token in the console. Just copy it into a file and name it `token.json`.
 
 If you have created a user label and want to monitor this label, then you may want to run the following to get the label ID for the corresponding label name:
 
