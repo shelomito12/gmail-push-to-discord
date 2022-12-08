@@ -62,14 +62,42 @@ Generate a Gmail access token by running the following:
 node getNewToken.js
 ```
 Copy the verification URL from the terminal and paste it a browser where the same Gmail account is already logged in.
-Just allow access to your new app and copy and code and paste it in the terminal.
-If everything goes well, you'll see your `token.json` file.
+Just allow access to your new app using your account, then copy and paste the given code into the terminal.
+![image](https://user-images.githubusercontent.com/10729787/204698131-56556e83-612e-4c2f-964e-e3fd78ae5a1a.png)
 
-Send a "Watch Request" so that Google starts watching our Gmail account for push notifications on the given user mailbox:
+If everything goes well, you'll get the access token in the console. Just copy it into a file and name it `token.json`.
+
+If you have created a user label and want to monitor this label, then you may want to run the following to get the label ID for the corresponding label name:
+
+```
+node eventTracker.js
+```
+Just perform any action on your Gmail web client like deleting an email, creating a draft, or receiving a new email, then you will get some JSON data. Just look for the label list. You will then need to set this label ID in the `.env` file (`EMAIL_LABEL`).
+
+Send a "Watch Request" so that Google starts watching your Gmail account for push notifications on the given user mailbox:
 
 ```
 node watchRequest.js
 ```
+You should see a JSON response. Make sure you see `status: 200` which means the request was accepted.
+
+At this point you should be able to execute the main application:
+
+```
+node index.js
+```
+
+It's recommended to have an advanced process manager for your production Node.js applications such as [`pm2`](https://pm2.keymetrics.io/):
+
+```
+sudo npm install pm2@latest -g
+```
+then you can start it as follows:
+
+```
+pm2 start index.js --name <your-app-name> --time
+```
+Your application will then start in the background, and if it crashes for whatever reason, it'll be automatically restarted.
 
 
 ## License
