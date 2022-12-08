@@ -1,6 +1,7 @@
 require('dotenv').config();
 const readline = require('readline');
-const {google} = require('googleapis');
+const { google } = require('googleapis');
+const fs = require('fs')
 
 function getToken() {
   const auth = new google.auth.OAuth2(
@@ -29,8 +30,13 @@ function getToken() {
         return console.log('Error retrieving access token', err);
       }
 
-      console.log('Token:');
-      console.log(token);
+      fs.writeFile('./token.json', JSON.stringify(token, null, 2), { encoding: 'utf8' }, function (err) {
+        if (err) {
+          return console.log('Error writing access token to file', err);
+        }
+        console.log('Token:');
+        console.log(JSON.stringify(token, null, 2));
+      });
     });
   });
 }
