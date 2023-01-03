@@ -3,6 +3,8 @@ const jsonToken = require("./token.json");
 const Gmailpush = require("gmailpush");
 const express = require("express");
 const app = express();
+const schedule = require('node-schedule');
+const fs = require('fs').promises;
 const { WebhookClient } = require("discord.js");
 const webhook = new WebhookClient({ url: process.env.WEBHOOK_URL });
 
@@ -47,6 +49,17 @@ app.post(
         if (!message.labelIds.includes(process.env.EMAIL_LABEL)) {
           return {};
         }
+
+        fs.readFile('./gmailpush_history.json')
+          .then((result) => {
+            const prevHistories = JSON.parse(result);
+            const prevHistory = prevHistories.find((prevHistory) => prevHistory.emailAddress === email);
+            schedule.scheduleJob(new Date(prevHistory.watchExpiration - 1000 * 60 * 30), async () => {
+              prevHistory.watchExpiration = await gmailpush._refreshWatch();
+              fs.writeFile('./gmailpush_history.json', JSON.stringify(prevHistories));
+            });
+          });
+
         return message;
       });
     if (subject) {

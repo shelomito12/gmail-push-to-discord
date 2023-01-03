@@ -28,7 +28,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "gmailpush": "^1.0.5",
-    "googleapis": "^61.0.0"
+    "googleapis": "^61.0.0",
+    "node-schedule": "^2.1.0"
   },
   "engines": {
     "node": ">=10"
