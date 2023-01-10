@@ -19,7 +19,7 @@ Get real-time Gmail push notifications to your Discord channel!
 - Just subscribe and whenever a change occurs, the app will instantly notify you
 - Once a new email is pushed, it will route as a text message to your Discord webhook URL
 - Choose which part of the email (subject, body, from, to) you want to include them in the message to Discord
-- Automatic `refresh_token` is used with a scheduler module called `node-schedule` to extend the seven-days watch expiration as indicated [here](https://developers.google.com/gmail/api/guides/push#renewing_mailbox_watch) and [here](https://developers.google.com/identity/protocols/oauth2#expiration):
+- Automatic `refresh_token` is used with a scheduler module called `node-schedule` to extend the seven-days watch expiration as indicated [here](https://developers.google.com/gmail/api/guides/push#renewing_mailbox_watch) and [here](https://developers.google.com/identity/protocols/oauth2#expiration), respectively:
   - >Renewing mailbox watch - 
 You must re-call watch() at least every 7 days or else you will stop receiving updates for the user. We recommend calling watch() once per day. The watch() response also has an expiration field with the timestamp for the watch expiration.
   - >A Google Cloud Platform project with an OAuth consent screen configured for an external user type and a publishing status of "Testing" is issued a refresh token expiring in 7 days.
