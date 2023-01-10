@@ -63,7 +63,7 @@ From the [prerequisites](#prerequisites),  download and place your `credentials.
 Generate a Gmail access token by running the following:
 
 ```bash
-node getNewToken.js
+node tools/getNewToken.js
 ```
 Copy the verification URL from the terminal and paste it a browser where the same Gmail account is already logged in.
 Just allow access to your new app using your account, then copy and paste the given code into the terminal.
@@ -74,14 +74,14 @@ If everything goes well, you'll get the access token in the console. Just copy i
 If you have created a user label and want to monitor this label, then you may want to run the following to get the label ID for the corresponding label name:
 
 ```
-node eventTracker.js
+node tools/eventTracker.js
 ```
 Just perform any action on your Gmail web client like deleting an email, creating a draft, or receiving a new email, then you will get some JSON data. Just look for the label list. You will then need to set this label ID in the `.env` file (`EMAIL_LABEL`).
 
 Send a "Watch Request" so that Google starts watching your Gmail account for push notifications on the given user mailbox:
 
 ```
-node watchRequest.js
+node tools/watchRequest.js
 ```
 You should see a JSON response. Make sure you see `status: 200` which means the request was accepted.
 
