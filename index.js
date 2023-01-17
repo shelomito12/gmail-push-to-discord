@@ -3,8 +3,9 @@ const jsonToken = require("./token.json");
 const Gmailpush = require("gmailpush");
 const express = require("express");
 const app = express();
-const schedule = require('node-schedule');
-const fs = require('fs').promises;
+const { google } = require("googleapis");
+const schedule = require("node-schedule");
+const fs = require("fs").promises;
 const { WebhookClient } = require("discord.js");
 const webhook = new WebhookClient({ url: process.env.WEBHOOK_URL });
 
@@ -28,6 +29,40 @@ const users = [
   },
 ];
 
+const job = schedule.scheduleJob("0 0 * * *", async () => {
+  try {
+    const gmailpushHistoryJson = await fs.readFile("gmailpush_history.json");
+    const prevHistories = JSON.parse(gmailpushHistoryJson);
+
+    await Promise.all(
+      prevHistories.map(async (prevHistory) => {
+        try {
+          const { token } = users.find(
+            (user) => user.email === prevHistory.emailAddress
+          );
+
+          gmailpush._api.auth.setCredentials(token);
+          gmailpush._api.gmail = google.gmail({
+            version: 'v1',
+            auth: gmailpush._api.auth,
+          });
+
+          await gmailpush._api.gmail.users.watch({
+            userId: prevHistory.emailAddress,
+            requestBody: {
+              topicName: gmailpush._api.pubsubTopic,
+            },
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      })
+    );
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 app.post(
   // Use URL set as Pub/Sub Subscription endpoint
   "/pubsub",
@@ -49,16 +84,6 @@ app.post(
         if (!message.labelIds.includes(process.env.EMAIL_LABEL)) {
           return {};
         }
-
-        fs.readFile('./gmailpush_history.json')
-          .then((result) => {
-            const prevHistories = JSON.parse(result);
-            const prevHistory = prevHistories.find((prevHistory) => prevHistory.emailAddress === email);
-            schedule.scheduleJob(new Date(prevHistory.watchExpiration - 1000 * 60 * 30), async () => {
-              prevHistory.watchExpiration = await gmailpush._refreshWatch();
-              fs.writeFile('./gmailpush_history.json', JSON.stringify(prevHistories));
-            });
-          });
 
         return message;
       });
